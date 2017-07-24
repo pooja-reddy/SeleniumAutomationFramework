@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="SampleTests-Yahoo Finance" verbose="1" >
+  <parameter name="browser" value="chrome" />
+  <parameter name="yahooFinanceURL" value="https://finance.yahoo.com" />
+  <parameter name="index" value=".\test-output\index.html" />
+  
+
+ <test name="CompareIndex Values- YahooFinanceLandingPage,YahooFinanceSearchTickerPage">
+    
+  	
+  	<classes>
+  		
+    	<class name="com.poojah.yahoofinance.SampleTests.TestIndexValuesOnLandingPageAndSearchResultsPage"></class>
+    	
+    </classes>
+  </test>   
+</suite>

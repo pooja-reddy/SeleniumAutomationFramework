@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ALL" packages="com.poojah.yahoofinance.SampleTests.Utilities">
+	<Properties>
+		<Property name="log-path">./logs</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="RollingFile" fileName="${log-path}/sampleTests.log"
+		filePattern="${log-path}/sampleTests-%d{yyyy-MM-dd}-%i.log" >
+			<PatternLayout>
+				<pattern>%d{dd/MMM/yyyy HH:mm:ss,SSS}- %c{1}: %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="20 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="4"/>
+		</RollingFile>
+		
+		<TestNgAppender name="testNg">
+			<PatternLayout>
+				<!-- <pattern>%d{ABSOLUTE} %5p %c{1}:%L - %m%</pattern> -->
+				<pattern>%m</pattern>
+			</PatternLayout>
+		</TestNgAppender>
+	</Appenders>
+	
+	<Loggers>
+		<Logger name="com.poojah" level="ALL" additivity="false">
+			<appender-ref ref="RollingFile" level="ALL"/>
+		</Logger>
+		
+		<Logger name="com.poojah" level="ALL" additivity="false">
+			<appender-ref ref="testNg" level="ALL"/>
+		</Logger>
+		
+		<Root level="ALL" additivity="false">
+			<AppenderRef ref="RollingFile" level="ALL"/>
+		</Root>
+	</Loggers>
+</Configuration>
